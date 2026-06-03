@@ -1,0 +1,377 @@
+---
+title: "Agroindustria Sucroalcoholera Global y Argentina: Vulnerabilidades Estructurales, Proyecciones y Transición Energética en la Campaña 2025/2026"
+description: |
+  Análisis integrado de las dinámicas geopolíticas, desequilibrios de mercado y estrategias de adaptación en la industria azucarera mundial, con énfasis en la posición competitiva de la República Argentina ante escenarios de alta volatilidad.
+author:
+  - name: Grupo de Investigación en Agroindustria Sostenible
+    affiliation: Facultad de Ciencias Económicas — Universidad Nacional de Tucumán
+    affiliation_url: https://www.unt.edu.ar
+    orcid_id: 0000-0000-0000-0000
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+    highlight: kate
+    code_folding: false
+    css: custom.css
+bibliography: agroindustria_mundial.bib
+csl: apa.csl
+lang: es
+categories:
+  - Agroindustria
+  - Bioeconomía
+  - Geopolítica
+  - Argentina
+abstract: |
+  La campaña azucarera global 2025/2026 se desarrolla en un contexto de superávit estructural moderado —con producción mundial de 182 millones de toneladas frente a un consumo de 179,8 millones— atravesado por perturbaciones geopolíticas de magnitud inédita: el conflicto en el Mar Negro, la imposición del mecanismo europeo de ajuste en frontera de carbono (CBAM), tensiones en el estrecho de Ormuz y la desestabilización del Caribe. A estas disrupciones se suma una crisis fitosanitaria de *Microcyclus ulei* sobre *Hevea brasiliensis* que compromete la cadena de suministro de elastómeros industriales críticos para la molienda. En el plano local, la agroindustria argentina exhibe métricas operativas de crecimiento —501.133 toneladas exportadas, ingresos FOB de USD 279,3 millones y expansión del 31% en el segmento orgánico certificado—, pero enfrenta vulnerabilidades sistémicas vinculadas al costo logístico interno y a la exposición energética. El presente trabajo sintetiza estas dimensiones bajo un marco analítico de cadenas globales de valor y propone indicadores de sostenibilidad alineados con los lineamientos de producción más limpia de la ONUDI para orientar decisiones de política sectorial.
+keywords: industria azucarera, bioetanol, geopolítica agraria, NOA argentino, Microcyclus ulei, cadenas globales de valor, producción más limpia
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo      = FALSE,
+  warning   = FALSE,
+  message   = FALSE,
+  fig.align = "center",
+  out.width = "100%"
+)
+
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(scales)
+library(ggplot2)
+library(viridis)
+```
+
+# Introducción {#intro}
+
+La agroindustria sucroalcoholera constituye uno de los sectores de mayor complejidad sistémica en la economía global: articula cadenas de valor que van desde la producción primaria de caña de azúcar (*Saccharum officinarum*) y remolacha azucarera (*Beta vulgaris*) hasta la generación de bioenergía, químicos de plataforma y materiales biodegradables [@gereffi2022global]. Con una producción mundial que supera los 182 millones de toneladas en el ciclo 2025/2026 y un consumo proyectado de 179,8 millones de toneladas, el sector exhibe un superávit estacional de aproximadamente 2,2 millones de toneladas, condición que presiona los precios internacionales hacia un rango de cotización en el Contrato N° 11 de Nueva York de entre 14,50 y 15,50 centavos por libra —equivalente a USD 440–450 por tonelada métrica— [@iso2025worldsugar].
+
+Sin embargo, esta aparente estabilidad cuantitativa oculta una arquitectura de fragilidades interconectadas. Las disrupciones geopolíticas —desde el conflicto en Ucrania hasta las tensiones en el estrecho de Ormuz— reconfiguran los flujos logísticos y el costo de los insumos agrícolas. La imposición del mecanismo europeo de ajuste en frontera de carbono (CBAM) altera los patrones de comercio transatlántico. La emergencia fitosanitaria causada por *Microcyclus ulei* sobre plantaciones de *Hevea brasiliensis* genera cuellos de botella en la provisión de elastómeros para equipos de molienda [@microcyclus2023rubber]. Y en el plano local, la industria azucarera del Noroeste Argentino (NOA) enfrenta la paradoja de expandir sus exportaciones mientras ve erosionarse sus márgenes netos por el impacto del gasoil en el flete interno [@freight2024noa].
+
+El propósito del presente artículo es triple: (*i*) caracterizar el balance global del mercado sucroalcoholero en la campaña 2025/2026 bajo un enfoque de cadenas globales de valor [@gereffi2022global]; (*ii*) identificar y cuantificar las principales vulnerabilidades sistémicas —geopolíticas, fitosanitarias y energéticas— que condicionan la producción y el comercio; y (*iii*) analizar la posición competitiva de la agroindustria argentina a la luz de estos factores, proponiendo indicadores de sostenibilidad consistentes con los lineamientos de producción más limpia de la ONUDI [@onudi2024cleaner].
+
+# Marco Teórico y Metodología {#marco}
+
+## Enfoque de Cadenas Globales de Valor
+
+El análisis adopta el paradigma de las cadenas globales de valor (CGV) desarrollado por @gereffi2022global como marco interpretativo principal. Este enfoque permite identificar quiénes gobiernan la cadena —actores con poder de establecer estándares, fijar precios y excluir competidores—, qué tipo de coordinación existe entre eslabones, y cómo se distribuyen los riesgos y los beneficios a lo largo del sistema. En el caso de la agroindustria azucarera, el gobierno de la cadena es disputado: los grandes *traders* internacionales (Cargill, Louis Dreyfus, Wilmar) compiten con Estados reguladores que establecen cuotas, aranceles y mandatos de mezcla.
+
+## Fuentes de Información y Variables Clave
+
+La investigación integra datos provenientes de: (*a*) informes de la Organización Internacional del Azúcar (ISO), la Unión de la Industria de Caña de Azúcar y Bioetanol (UNICA) y el Centro Azucarero Argentino (CAA); (*b*) series de precios del mercado de futuros de azúcar crudo (Contrato N° 11, ICE Futures); (*c*) indicadores de costos logísticos y energéticos del NOA; y (*d*) literatura científica arbitrada sobre impactos de *Microcyclus ulei* y evaluaciones de ciclo de vida (LCA) en la industria azucarera.
+
+Las variables de análisis comprenden: producción y consumo mundiales (t), cuotas de mercado por país, precios FOB y FAS, costos de insumos (fertilizantes, combustibles), volúmenes y valores de exportación argentina, y métricas de eficiencia operativa en la cosecha mecanizada.
+
+# Balances del Mercado Global 2025/2026 {#balances}
+
+## Estructura de la Oferta Mundial
+
+```{r cuotas-produccion, fig.cap="Distribución de la producción mundial de azúcar por país/región (Campaña 2025/2026). Fuente: elaboración propia sobre datos ISO (2025).", fig.width=6, fig.height=4}
+
+cuotas <- data.frame(
+  pais   = c("Brasil", "India", "Unión Europea", "China", "Resto del mundo"),
+  cuota  = c(23, 19, 8, 6, 44)
+)
+
+ggplot(cuotas, aes(x = reorder(pais, cuota), y = cuota, fill = pais)) +
+  geom_col(width = 0.65, show.legend = FALSE) +
+  geom_text(aes(label = paste0(cuota, "%")), hjust = -0.2, size = 3.5, fontface = "bold") +
+  coord_flip(clip = "off") +
+  scale_fill_viridis_d(option = "mako", direction = -1, begin = 0.2, end = 0.85) +
+  scale_y_continuous(limits = c(0, 55), labels = function(x) paste0(x, "%")) +
+  labs(
+    x = NULL, y = "Participación en la producción mundial (%)",
+    title = "Cuotas de Producción Mundial de Azúcar 2025/2026",
+    caption = "Fuente: ISO (2025). Producción total: 182 millones de toneladas."
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title     = element_text(face = "bold", size = 12),
+    axis.text      = element_text(size = 10),
+    panel.grid.major.y = element_blank()
+  )
+```
+
+Brasil mantiene su posición hegemónica con el 23% de la producción mundial —aproximadamente 41,9 millones de toneladas—, seguido por India con el 19% [@unica2025brazil]. La Unión Europea y China concentran el 14% restante entre las grandes economías productoras. Esta configuración oligopólica de la oferta implica que cualquier variación climática o política en Brasil o India tiene efectos inmediatos y significativos sobre el precio internacional.
+
+```{r tabla-balance, echo=FALSE}
+balance <- data.frame(
+  Indicador = c(
+    "Producción mundial (M t)",
+    "Consumo mundial (M t)",
+    "Superávit estacional (M t)",
+    "Precio promedio NY N°11 (c/lb)",
+    "Equivalencia USD/tonelada"
+  ),
+  Valor_2025_2026 = c(
+    "182,0",
+    "179,8",
+    "2,2",
+    "14,50 – 15,50",
+    "440 – 450"
+  )
+)
+
+kable(
+  balance,
+  col.names = c("Indicador", "Campaña 2025/2026"),
+  caption   = "Balance global del mercado de azúcar, campaña 2025/2026.",
+  align     = c("l", "c"),
+  booktabs  = TRUE
+) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover"),
+    full_width        = FALSE,
+    position          = "center"
+  )
+```
+
+La dinámica de precios refleja la coexistencia de un superávit moderado con una prima geopolítica. En ausencia de disrupciones, el rango de equilibrio de largo plazo se ubicaría en torno a 13–14 centavos por libra; los 15 centavos actuales incorporan, según estimaciones de @baffes2024commodity, entre 1,0 y 1,5 centavos de prima de riesgo derivada de las tensiones en Ormuz y el Mar Negro.
+
+## Proyección de Demanda 2026–2030
+
+La demanda global de azúcar seguirá impulsada por el crecimiento demográfico y el aumento del ingreso per cápita en África Subsahariana y el Sudeste Asiático. Sin embargo, dos factores moderadores operarán en sentido contrario: (*i*) la expansión de los edulcorantes de alta intensidad (sucralosa, stevia) en mercados de altos ingresos; y (*ii*) el crecimiento de los mandatos de bioetanol —especialmente en Brasil, India, Tailandia y Argentina—, que sustrae materia prima del circuito alimentario hacia el energético.
+
+Las proyecciones del @iso2025worldsugar estiman que la demanda crecerá a una tasa anual del 1,8% hasta 2030, alcanzando aproximadamente 195 millones de toneladas, mientras que la oferta se expandirá al 2,1% anual, configurando un escenario de superávit crónico que presionaría los precios hacia el rango de 12–14 centavos por libra en ausencia de shocks exógenos.
+
+# Vulnerabilidades Geopolíticas y Sistémicas {#vulnerabilidades}
+
+## Conflicto en el Mar Negro y Costos de Fertilizantes
+
+La prolongación del conflicto en Ucrania restringe de manera persistente la logística de fertilizantes nitrogenados y potásicos producidos o transitados por la cuenca del Mar Negro [@guerra2023ukraine]. Rusia y Bielorrusia representan, combinados, aproximadamente el 38% de la oferta global de potasio y el 22% de los fertilizantes nitrogenados derivados del gas natural. El impacto sobre la remolacha azucarera europea —cultivo que demanda entre 180 y 220 kg N/ha por ciclo— es particularmente severo: los costos de nitrógeno sintético mostraron un incremento sostenido del **18%** en Europa central durante la campaña 2024/2025, reduciendo los márgenes netos en aproximadamente EUR 320 por hectárea.
+
+Este encarecimiento de insumos ha acelerado la adopción de estrategias de eficiencia en el uso de nutrientes: fertirrigación de precisión, aplicaciones variables basadas en sensores de clorofila y uso de inhibidores de nitrificación. Aun así, los datos disponibles sugieren que el sector de remolacha azucarera de la UE operará con márgenes ajustados durante al menos dos campañas adicionales.
+
+## Mecanismo CBAM y Redirección de Flujos Comerciales
+
+La plena implementación del mecanismo europeo de ajuste en frontera de carbono (CBAM) desde 2026 representa un punto de inflexión para los exportadores tropicales de azúcar [@cbam2023eu]. El CBAM establece un precio de carbono para productos importados equivalente al que pagarían en el mercado de carbono europeo (EU ETS), actualmente en torno a EUR 60–70 por tonelada de CO₂e. Dado que la huella de carbono del azúcar de caña varía entre 0,4 y 0,6 kg CO₂e por kg de producto —dependiendo del sistema de gestión agrícola y la intensidad del transporte—, el sobrecosto arancelario efectivo oscila entre EUR 24 y EUR 42 por tonelada.
+
+El resultado observable es la **redirección de excedentes europeos hacia mercados africanos**, que actúan como *surplus receivers* de menor poder adquisitivo. Según estimaciones de @mehling2023cbam, este efecto deprece el precio FOB de referencia en aproximadamente un **4,2%**, lo que equivale a una pérdida de USD 18–19 por tonelada para los exportadores competidores.
+
+Para Argentina, el CBAM representa tanto un riesgo —en la medida en que sus costos de certificación de huella de carbono son aún incipientes— como una oportunidad: el azúcar orgánico certificado, que ya representa el 33% del volumen exportado, está potencialmente posicionado para acceder a mercados premium europeos que valoran la diferenciación ambiental.
+
+## Crisis en el Estrecho de Ormuz y la Ecuación Bioetanol
+
+Las hostilidades en el estrecho de Ormuz restringieron el tránsito diario de crudo durante períodos extendidos de 2025, empujando el precio del Brent hasta un pico de **USD 82 por barril**, lo que representa un incremento del **13%** en los costos de combustibles fósiles de referencia [@ormuz2024energy].
+
+```{r ormuz-impacto, fig.cap="Mecanismo de transmisión del conflicto en Ormuz sobre la decisión de mix de producción Brasil (azúcar vs. bioetanol hidratado). Fuente: elaboración propia.", fig.width=7, fig.height=4}
+
+precios_sim <- data.frame(
+  brent = seq(50, 100, by = 5),
+  mix_etanol = c(55, 57, 59, 62, 65, 69, 74, 79, 83, 86, 88)
+)
+
+ggplot(precios_sim, aes(x = brent, y = mix_etanol)) +
+  geom_line(color = "#2E7D32", linewidth = 1.2) +
+  geom_point(color = "#1B5E20", size = 2.5) +
+  geom_vline(xintercept = 82, linetype = "dashed", color = "#C62828", linewidth = 0.9) +
+  annotate("text", x = 83.5, y = 60,
+           label = "Pico Ormuz\nUSD 82/bbl",
+           color = "#C62828", size = 3.2, hjust = 0) +
+  scale_x_continuous(labels = dollar_format(prefix = "USD ")) +
+  scale_y_continuous(labels = function(x) paste0(x, "%")) +
+  labs(
+    x = "Precio Brent (USD/barril)",
+    y = "% destinado a bioetanol (Brasil)",
+    title = "Sensibilidad del Mix de Producción Brasileño al Precio del Crudo",
+    caption = "Simulación paramétrica. Fuente: elaboración propia sobre datos UNICA (2025) y ISO (2025)."
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(plot.title = element_text(face = "bold", size = 12))
+```
+
+El impacto más relevante sobre la industria azucarera global opera a través de la respuesta de Brasil: a precios de crudo superiores a USD 75/barril, la paridad bioetanol/azúcar en el mercado interno brasileño favorece sistemáticamente el desvío de materia prima hacia la producción de bioetanol hidratado, lo que **reduce la oferta de azúcar físico en el mercado internacional**, actuando como mecanismo automático de estabilización del precio por encima de los 15 centavos/libra. Esta dinámica ha sido denominada en la literatura como el "piso Brasil" (*Brazilian floor*) de la cotización internacional [@unica2025brazil].
+
+## Desestabilización Caribeña y Capacidad de Molienda Regional
+
+La situación de Venezuela ha generado un bloqueo de facto en rutas marítimas secundarias del Caribe, con consecuencias dobles: la pérdida de la capacidad de molienda remanente del complejo caribeño —estimada en menos de 200.000 toneladas— y un encarecimiento de las primas de seguros de carga regional del **12,5%**. Este último efecto eleva los costos logísticos para exportadores sudamericanos que utilizan rutas caribeñas hacia América del Norte, incluyendo parcialmente a Argentina cuando exporta hacia los puertos del Golfo de México.
+
+# La Crisis Fitosanitaria del Caucho y sus Efectos Agroindustriales {#caucho}
+
+## *Microcyclus ulei* y la Vulnerabilidad de *Hevea brasiliensis*
+
+La enfermedad del mal de las hojas del caucho sudamericano, causada por el hongo *Microcyclus ulei* (P. Henn.) Arx, representa la principal amenaza fitosanitaria para las plantaciones de *Hevea brasiliensis* en el continente americano [@microcyclus2023rubber]. Durante la campaña 2025, la expansión de focos activos en las principales regiones productoras de caucho natural de Brasil —estados de Pará, Mato Grosso y Bahía— derivó en una reducción estimada del 15–22% en el rendimiento de látex, afectando las cadenas globales de caucho natural.
+
+La relevancia de este fenómeno para la industria azucarera no es inmediatamente obvia y merece una explicación detallada del **mecanismo de transmisión**.
+
+## Mecanismo de Transmisión: De la Crisis del Caucho a la Molienda Azucarera
+
+Las plantas de molienda de caña de azúcar son grandes consumidoras de componentes elastoméricos de alta especificación: bandas transportadoras de bagasse, sellos y juntas de prensas hidráulicas, neumáticos de alta flotación para cosechadoras combinadas y tractores de alto tonelaje. Estos componentes requieren caucho natural de alta elasticidad —específicamente, cauchos de alta fracción *cis*-1,4 poliisopreno— que no puede ser sustituido de manera económica ni técnicamente equivalente por elastómeros sintéticos en aplicaciones de alta carga dinámica [@conveyor2024rubber; @zhang2024rubber].
+
+La escasez crítica de caucho natural generó un aumento del **28,4%** en el costo de mantenimiento de activos fijos en las plantas de molienda, y retrasos promedio de **14 días** en la logística de extracción en campo por fallas de neumáticos específicos de alta flotación. Para un ingenio de escala media —con una molienda diaria de 8.000 a 12.000 toneladas de caña— este retraso representa pérdidas directas de entre USD 320.000 y USD 480.000 por evento de falla mayor.
+
+```{r tabla-caucho}
+impacto_caucho <- data.frame(
+  Componente = c(
+    "Bandas transportadoras industriales (bagasse)",
+    "Neumáticos alta flotación (cosechadoras)",
+    "Sellos y juntas prensas hidráulicas",
+    "Rodillos y cojinetes elastoméricos"
+  ),
+  Aumento_Costo = c("31,2%", "28,4%", "19,7%", "22,1%"),
+  Lead_Time_Dias = c("45–60", "30–45", "15–20", "20–30"),
+  Impacto_Operativo = c("Crítico", "Crítico", "Moderado", "Moderado")
+)
+
+kable(
+  impacto_caucho,
+  col.names = c("Componente elastomérico", "Aumento de costo", "Tiempo de reposición", "Impacto operativo"),
+  caption   = "Impacto de la crisis de *Hevea brasiliensis* sobre componentes elastoméricos críticos en la industria de molienda. Fuente: elaboración propia sobre @conveyor2024rubber.",
+  booktabs  = TRUE
+) |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE) |>
+  column_spec(4, bold = TRUE,
+              color = ifelse(impacto_caucho$Impacto_Operativo == "Crítico", "#C62828", "#E65100"))
+```
+
+Las estrategias de mitigación incluyen: (*i*) constitución de inventarios de seguridad ampliados (de 30 a 90 días), (*ii*) reconversión a componentes híbridos caucho–sintético donde la especificación técnica lo permite, y (*iii*) desarrollo de proveedores alternativos de caucho en Sudeste Asiático (Malasia, Indonesia, Vietnam), con los consiguientes aumentos en los costos de flete internacional.
+
+# La Agroindustria Azucarera Argentina en el Contexto Global {#argentina}
+
+## Estructura Productiva del NOA
+
+La industria azucarera argentina se concentra geográficamente en el Noroeste Argentino (NOA), con 20 ingenios activos distribuidos de la siguiente manera: la provincia de Tucumán concentra el **62%** de la producción total, en tanto Salta y Jujuy aportan el **37%** restante, con una participación marginal de Santa Fe y Misiones [@caa2025tucuman; @argentina2025cana]. El ingenio de mayor escala es Ledesma (Jujuy), con una cuota aproximada del 17% de la producción nacional.
+
+```{r distribucion-noa, fig.cap="Distribución geográfica de la producción azucarera argentina por provincia (Campaña 2024/2025). Fuente: CAA (2025).", fig.width=5.5, fig.height=3.5}
+
+noa_data <- data.frame(
+  provincia = c("Tucumán", "Salta y Jujuy", "Otras"),
+  porcentaje = c(62, 37, 1)
+)
+
+ggplot(noa_data, aes(x = "", y = porcentaje, fill = provincia)) +
+  geom_col(width = 0.5) +
+  geom_text(aes(label = paste0(porcentaje, "%")),
+            position = position_stack(vjust = 0.5),
+            size = 4, fontface = "bold", color = "white") +
+  coord_flip() +
+  scale_fill_manual(values = c("#1565C0", "#2E7D32", "#9E9E9E")) +
+  labs(
+    title = "Participación Provincial en la Producción Azucarera Argentina",
+    fill  = "Provincia", x = NULL, y = "Porcentaje (%)"
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title = element_text(face = "bold", size = 11),
+    legend.position = "right"
+  )
+```
+
+## Métricas Operativas de la Campaña Reciente
+
+```{r metricas-tabla}
+metricas <- data.frame(
+  Indicador = c(
+    "Caña molida bruta (t)",
+    "Azúcar físico producido (t)",
+    "Alcohol hidratado total (L)",
+    "Pérdidas en cosecha mecanizada (t caña/ha)",
+    "Azúcar recuperable perdido (kg/ha)",
+    "Costo económico pérdidas ($/ha)"
+  ),
+  Valor = c(
+    "10.189.338",
+    "654.156",
+    "187.126.970",
+    "1,625",
+    "146,0",
+    "73.277"
+  )
+)
+
+kable(
+  metricas,
+  col.names = c("Indicador operativo", "Valor campaña 2024/2025"),
+  caption   = "Indicadores operativos de la agroindustria azucarera argentina. Fuente: CAA (2025).",
+  align     = c("l", "r"),
+  booktabs  = TRUE
+) |>
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE, position = "center")
+```
+
+Las pérdidas en la cosecha mecanizada representan uno de los principales vectores de ineficiencia: 1,625 toneladas de materia prima por hectárea equivalen a 146 kg de azúcar recuperable perdido, con un costo económico de $73.277 por hectárea [@harvesting2024losses; @barata2024losses]. La adopción de sistemas de cosecha de alta eficiencia —regulación de altura de corte basal, velocidad optimizada, mantenimiento preventivo de extractor primario— puede reducir estas pérdidas entre un 30 y un 45%, según evidencia experimental disponible para el NOA.
+
+## Dinámica Exportadora y Segmento de Alto Valor
+
+```{r exportaciones-fig, fig.cap="Exportaciones argentinas de azúcar: composición convencional vs. orgánico certificado (Campaña 2024/2025). Fuente: CAA (2025) y elaboración propia.", fig.width=6, fig.height=3.5}
+
+export_data <- data.frame(
+  segmento = c("Azúcar convencional", "Azúcar orgánico certificado"),
+  toneladas = c(501133 - 167600, 167600),
+  pct = c(66.6, 33.4)
+)
+
+ggplot(export_data, aes(x = segmento, y = toneladas / 1000, fill = segmento)) +
+  geom_col(width = 0.55, show.legend = FALSE) +
+  geom_text(aes(label = paste0(round(toneladas / 1000, 1), " kt\n(", pct, "%)")),
+            vjust = -0.4, size = 3.5, fontface = "bold") +
+  scale_fill_manual(values = c("#5C6BC0", "#2E7D32")) +
+  scale_y_continuous(labels = function(x) paste0(x, " kt"), limits = c(0, 420)) +
+  labs(
+    x = NULL, y = "Volumen exportado (miles de toneladas)",
+    title = "Composición de las Exportaciones Argentinas de Azúcar",
+    subtitle = "Total: 501.133 toneladas | Ingresos FOB: USD 279,3 millones | Crecimiento i.a.: +9%",
+    caption = "El segmento orgánico registra un crecimiento del 31% respecto al ciclo anterior."
+  ) +
+  theme_minimal(base_size = 11) +
+  theme(
+    plot.title    = element_text(face = "bold", size = 12),
+    plot.subtitle = element_text(size = 10, color = "grey40")
+  )
+```
+
+La dinámica exportadora argentina registra resultados positivos: 501.133 toneladas exportadas, ingresos FOB de USD 279,3 millones y un crecimiento interanual del 9%, aunque sin alcanzar el récord de 592.000 toneladas del ciclo anterior [@caa2025tucuman]. Los principales destinos son Estados Unidos, Chile, Uruguay, Canadá y Arabia Saudita.
+
+El rasgo más destacable es la expansión del segmento de **azúcar orgánico certificado**: con 167.600 toneladas y un crecimiento del 31%, Argentina se consolida como uno de los proveedores más relevantes de este nicho a nivel global [@organicsugar2024; @potts2024ssa]. Este posicionamiento es estratégico no solo por el diferencial de precio —que oscila entre USD 80 y USD 150 por tonelada por encima del convencional—, sino porque otorga resiliencia ante regulaciones ambientales como el CBAM europeo.
+
+## Mandato de Bioetanol y Vulnerabilidad Energética
+
+El mandato de corte de bioetanol en naftas del **12%** implica una demanda estable de alcohol de origen sucroalcoholero para el mercado interno argentino, con una proyección de producción de 625.000 m³ para 2026 [@bioetanol2024argentina]. Esta asignación interna actúa como amortiguador ante la volatilidad del precio internacional del azúcar.
+
+Sin embargo, la misma causa que sostiene el precio internacional —el encarecimiento del petróleo por el conflicto de Ormuz— impacta negativamente sobre los costos operativos domésticos. El incremento del precio del gasoil derivado de este conflicto elevó los **costos de flete interno desde el NOA hacia los puertos fluviales de Rosario en un 22,1%**, erosionando los márgenes netos de exportación a pesar del volumen récord [@freight2024noa]. Para un exportador tucumano con un costo de flete de USD 35–40 por tonelada en condiciones normales, este incremento representa un sobrecosto de USD 7,7–8,8 por tonelada, o aproximadamente el 1,7–2,0% del precio FOB de referencia.
+
+# Indicadores de Sostenibilidad y Producción Más Limpia {#sostenibilidad}
+
+Siguiendo los lineamientos metodológicos de la ONUDI para la producción más limpia en la agroindustria [@onudi2024cleaner], se propone un sistema de indicadores articulado en tres dimensiones:
+
+## Dimensión Ambiental
+
+El indicador central es la **huella de carbono por tonelada de azúcar refinada**, diferenciada según el régimen de cogeneración bagacera. Los ingenios que operan sistemas de cogeneración de alta eficiencia —con turbinas de contrapresión y turbinas de condensación en ciclo combinado— logran reducciones de 0,18–0,25 kg CO₂e por kg de azúcar producida respecto a plantas convencionales [@cogeneracion2023bagasse]. En el contexto del CBAM, esta diferenciación puede representar ahorros arancelarios de EUR 10–18 por tonelada exportada hacia la Unión Europea.
+
+El **análisis de ciclo de vida (LCA) comparativo** entre azúcar ICUMSA 45 y bioetanol deshidratado ante escenarios de volatilidad de combustibles fósiles constituye el segundo pilar analítico. Los estudios disponibles [@lca2024sugarcane; @ramjeawon2024lca] sugieren que, a precios de crudo superiores a USD 70/barril, el bioetanol deshidratado presenta una ventaja de costo de abatimiento de CO₂ de USD 18–32 por tonelada respecto al azúcar convencional, lo que refuerza la racionalidad económica de mantener e incrementar el mandato de mezcla.
+
+## Dimensión de Resiliencia de Cadena de Suministro
+
+La crisis de *Hevea brasiliensis* visibiliza la importancia de la **resiliencia elastomérica** como indicador de continuidad operativa. Se propone el índice de dependencia de caucho natural (IDCN), definido como:
+
+$$IDCN = \frac{\text{Toneladas de caucho natural en componentes críticos}}{\text{Total de elastómeros utilizados}} \times 100$$
+
+Un valor de IDCN superior al 60% indica alta vulnerabilidad a disrupciones de la cadena de caucho natural. La gestión de este indicador requiere inversión en mapeo de proveedores alternativos, desarrollo de compuestos híbridos y constitución de inventarios estratégicos.
+
+## Dimensión Socioeconómica
+
+La eficiencia en la cosecha mecanizada —medida como toneladas de azúcar recuperable sobre el total de azúcar disponible por hectárea— captura simultáneamente la eficiencia económica y la equidad distributiva de la cadena (dado que las pérdidas de cosecha impactan proporcionalmente más a los pequeños cañeros independientes que venden por rendimiento [@argentina2025cana]).
+
+# Discusión y Conclusiones {#conclusiones}
+
+El análisis presentado revela que la agroindustria sucroalcoholera global transita por una etapa de **superávit estructural moderado coexistente con alta volatilidad sistémica**. Esta configuración —inusual en la historia del sector— exige marcos analíticos que superen la dicotomía oferta/demanda para incorporar la geopolítica de insumos, la dinámica de cadenas globales de valor y los umbrales de sostenibilidad ambiental.
+
+Para la Argentina, las implicaciones son de doble naturaleza:
+
+**Oportunidades estructurales:** El posicionamiento en azúcar orgánico certificado ofrece la ruta más directa hacia la captura de valor diferencial y la resiliencia ante regulaciones ambientales como el CBAM. El mandato de bioetanol provee estabilidad de demanda interna y actúa como amortiguador ante la volatilidad del precio internacional. La expansión hacia nuevos mercados —Arabia Saudita, África del Norte— reduce la exposición a mercados saturados.
+
+**Vulnerabilidades persistentes:** El costo logístico interno continúa siendo el principal factor de erosión de competitividad exportadora, agravado por la transmisión de precios de crudo desde el conflicto de Ormuz. La dependencia de elastómeros de alta especificación, expuesta por la crisis de *Hevea brasiliensis*, requiere una estrategia explícita de gestión de riesgo en el abastecimiento. Y la escasa penetración de instrumentos de LCA y certificación de huella de carbono limita el acceso a mercados premium europeos en proceso de decarbonización.
+
+La agenda de investigación futura debería priorizar: (*i*) la cuantificación de la huella de carbono a nivel de ingenio mediante metodologías estandarizadas compatibles con el marco ISO 14067; (*ii*) el desarrollo de herramientas de pronóstico de precios que integren el "piso Brasil" con indicadores de riesgo geopolítico en tiempo real; y (*iii*) la evaluación de políticas de sustitución elastomérica a escala regional, con foco en el desarrollo de cadenas locales de caucho sintético de alta especificación.
+
+En síntesis, la agroindustria sucroalcoholera argentina posee los recursos productivos y el posicionamiento de mercado para transitar exitosamente hacia un modelo de mayor valor agregado y resiliencia sistémica, pero ello requiere una articulación deliberada entre política industrial, innovación tecnológica y gestión de riesgo de cadena de suministro que actualmente se encuentra en estado incipiente.
+
+# Agradecimientos {.appendix}
+
+Los autores agradecen los aportes del Centro Azucarero Argentino, la Organización Internacional del Azúcar y los revisores anónimos de la revista *Cleaner Production*. Este trabajo no recibió financiamiento específico de agencias gubernamentales o comerciales.
+
+# Referencias {.appendix}
